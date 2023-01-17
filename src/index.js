@@ -1,7 +1,11 @@
 import React from "react";
-import { render } from "react-dom";
-import StorePicker from "./components/StorePicker";
-import App from "./components/App";
+import ReactDOM from "react-dom/client";
+import Router from "./components/Router";
 import "./css/style.css";
 
-render(<App />, document.querySelector('#main'));
+const root = ReactDOM.createRoot(document.getElementById('main'));
+root.render(
+  <React.StrictMode>
+    <Router />
+  </React.StrictMode>
+);
