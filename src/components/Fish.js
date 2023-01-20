@@ -1,4 +1,5 @@
 import { formatPrice } from "../helpers";
+import PropTypes from "prop-types";
 
 function Fish({ details, addToOrder, index }) {
   const { image, name, price, desc, status } = details;
@@ -21,5 +22,17 @@ function Fish({ details, addToOrder, index }) {
     </li>
   );
 }
+
+Fish.propTypes = {
+  details: PropTypes.shape({
+    image: PropTypes.string,
+    name: PropTypes.string,
+    desc: PropTypes.string,
+    status: PropTypes.string,
+    price: PropTypes.number
+  }),
+  addToOrder: PropTypes.func,
+  index: PropTypes.string
+};
 
 export default Fish;

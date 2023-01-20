@@ -47,9 +47,28 @@ function App() {
     setDoc(doc(db, `${storeId}`, "fishes"), { ...fishes, ...sampleFishes});
   };
 
-  const addToOrder = (key) => {
+  const updateFish = ( key, updatedFish ) => {
+    const copyFishes = { ...fishes };
+    copyFishes[key] = updatedFish;
+    setFishes(copyFishes);
+  };
+
+  const deleteFish = key => {
+    const copyFishes = { ...fishes };
+    delete copyFishes[key];
+    setFishes(copyFishes);
+    setDoc(doc(db, `${storeId}`, "fishes"), copyFishes);
+  };
+
+  const addToOrder = key => {
     const copyOrder = { ...order };
-    copyOrder[key] = order[key] + 1 || 1;
+    copyOrder[key] = copyOrder[key] + 1 || 1;
+    setOrder(copyOrder);
+  };
+
+  const removeFromOrder = key => {
+    const copyOrder = { ...order };
+    delete copyOrder[key];
     setOrder(copyOrder);
   };
 
@@ -71,10 +90,14 @@ function App() {
       <Order 
         fishes={fishes} 
         order={order} 
+        removeFromOrder={removeFromOrder}
       />
       <Inventory 
         addFish={addFish} 
-        loadSampleFishes={loadSampleFishes} 
+        updateFish={updateFish}
+        deleteFish={deleteFish}
+        loadSampleFishes={loadSampleFishes}
+        fishes={fishes}
       />
     </div>
   );
