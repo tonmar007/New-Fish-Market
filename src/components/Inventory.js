@@ -3,7 +3,7 @@ import AddFishForm from "./AddFishForm";
 import EditFishForm from "./EditFishForm";
 import PropTypes from "prop-types";
 import Login from "./Login";
-import { FacebookAuthProvider, GithubAuthProvider, signInWithPopup } from "firebase/auth";
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { db, authApp} from "../base";
 import { doc, onSnapshot, updateDoc, setDoc } from "firebase/firestore";
 
@@ -47,7 +47,7 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
     signInWithPopup(authApp, facebookAuthProvider)
       .then(authHandler)
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
       });
     }
 
@@ -56,7 +56,16 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
     signInWithPopup(authApp, githubAuthProvider)
       .then(authHandler)
       .catch((err) => {
-        console.log(err);
+        console.log(err.message);
+      });
+    }
+
+    if(provider == "Google"){
+      const googleAuthProvider = new GoogleAuthProvider();
+      signInWithPopup(authApp, googleAuthProvider)
+      .then(authHandler)
+      .catch((err) => {
+        console.log(err.message);
       });
     }
   };

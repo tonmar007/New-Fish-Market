@@ -559,8 +559,8 @@ button.github,
 input[type=submit].github,
 button.facebook,
 input[type=submit].facebook,
-button.twitter,
-input[type=submit].twitter {
+button.google,
+input[type=submit].google {
   border: 0;
   display: block;
   margin-bottom: 2rem;
@@ -584,12 +584,12 @@ button.facebook:after,
 input[type=submit].facebook:after {
   background: #2d5082;
 }
-button.twitter,
-input[type=submit].twitter {
+button.google,
+input[type=submit].google {
   background: #5ea9dd;
 }
-button.twitter:after,
-input[type=submit].twitter:after {
+button.google:after,
+input[type=submit].google:after {
   background: #2c8dd0;
 }
 .store-selector {

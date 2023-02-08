@@ -10,6 +10,9 @@ const Login = ({ authenticate }) => (
     <button className="facebook" onClick={() => authenticate('Facebook')}>
       Log In With Facebook
     </button>
+    <button className="google" onClick={() => authenticate('Google')}>
+      Log In With Google
+    </button>
   </nav>
 );
 

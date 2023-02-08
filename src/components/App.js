@@ -6,7 +6,7 @@ import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
 import { useParams } from "react-router-dom";
 import { db } from "../base";
-import { doc, setDoc, deleteDoc, onSnapshot } from "firebase/firestore";
+import { doc, setDoc, onSnapshot } from "firebase/firestore";
 
 function App() {
   const [fishes, setFishes] = useState({});
