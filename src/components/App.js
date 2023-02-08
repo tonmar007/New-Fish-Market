@@ -98,6 +98,7 @@ function App() {
         deleteFish={deleteFish}
         loadSampleFishes={loadSampleFishes}
         fishes={fishes}
+        storeId = {storeId}
       />
     </div>
   );
