@@ -25,14 +25,14 @@ function Fish({ details, addToOrder, index }) {
 
 Fish.propTypes = {
   details: PropTypes.shape({
-    image: PropTypes.string,
-    name: PropTypes.string,
-    desc: PropTypes.string,
-    status: PropTypes.string,
-    price: PropTypes.number
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired
   }),
-  addToOrder: PropTypes.func,
-  index: PropTypes.string
+  addToOrder: PropTypes.func.isRequired,
+  index: PropTypes.string.isRequired
 };
 
 export default Fish;

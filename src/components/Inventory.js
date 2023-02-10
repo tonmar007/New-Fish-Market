@@ -4,7 +4,7 @@ import EditFishForm from "./EditFishForm";
 import PropTypes from "prop-types";
 import Login from "./Login";
 import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import { db, authApp} from "../base";
+import { db, authApp} from "../dbConnection";
 import { doc, onSnapshot, updateDoc, setDoc } from "firebase/firestore";
 
 function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, storeId }) {
@@ -12,6 +12,7 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
     uid: null,
     owner: null 
   });
+  const COLLECTION_NAME = "owner";
 
   const [store, setStore] = useState({});
 
@@ -24,7 +25,7 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
   }, []);
 
   useEffect(() => {
-    const fishesRef = doc(db, `${storeId}`, "owner");
+    const fishesRef = doc(db, `${storeId}`, COLLECTION_NAME);
     onSnapshot(fishesRef, (docc) => {
       setStore(docc.data());
     });
@@ -32,7 +33,7 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
 
   const authHandler = async (authData) => {
     if(!store) {
-      await setDoc(doc(db, `${storeId}`, "owner"), { data: authData.user.uid});
+      await setDoc(doc(db, `${storeId}`, COLLECTION_NAME), { data: authData.user.uid});
     }
     
     setUser({

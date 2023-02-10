@@ -37,7 +37,7 @@ function AddFishForm({addFish}) {
 }
 
 AddFishForm.propTypes = {
-  addFish: PropTypes.func
+  addFish: PropTypes.func.isRequired
 };
 
 export default AddFishForm;
