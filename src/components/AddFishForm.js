@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
 function AddFishForm({addFish}) {
   const nameRef = useRef();
@@ -34,5 +35,9 @@ function AddFishForm({addFish}) {
     </form>
   );
 }
+
+AddFishForm.propTypes = {
+  addFish: PropTypes.func.isRequired
+};
 
 export default AddFishForm;
