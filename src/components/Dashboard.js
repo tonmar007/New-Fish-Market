@@ -13,7 +13,6 @@ function Dashboard() {
   const [order, setOrder] = useState({});
   const { storeId } = useParams();
   const COLLECTION_NAME = "fishes";
-
   const fishesRef = doc(db, `${storeId}`, COLLECTION_NAME);
   
   useEffect(() => {
