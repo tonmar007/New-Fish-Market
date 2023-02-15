@@ -13,14 +13,17 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
     owner: null 
   });
   const COLLECTION_NAME = "owner";
-
   const [store, setStore] = useState({});
 
   useEffect(() => {
     authApp.onAuthStateChanged(user => {
-      if(user){
-        authHandler({ user });
-      }
+      const fishesRef = doc(db, `${storeId}`, COLLECTION_NAME);
+      onSnapshot(fishesRef, (docc) => {
+        setStore(docc.data());
+        if(docc.data()?.owner && user){
+          authHandler({ user });
+        }
+      });
     })
   }, []);
 
@@ -77,6 +80,8 @@ function Inventory({ addFish, loadSampleFishes, fishes, updateFish, deleteFish, 
   };
 
   const logout = <button onClick={Logout}>Log Out!</button>;
+
+  console.log("user id",user.uid);
 
   if(!user.uid){
     return <Login authenticate={authenticate}/>;
