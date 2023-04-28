@@ -14,6 +14,8 @@ The goal of this project is to provide a platform where users can easily and int
 2. Install dependencies using the `npm install` command.
 3. Create a `.env` file at the root of the project and add the Firebase configuration information. The file should contain the following fields:
 
+<img width="656" alt="envFIle" src="https://user-images.githubusercontent.com/62022812/235138751-81e934b6-d9b6-4cce-a9e0-7e00e2c751b0.png">
+
 4. Start the server using the `npm start` command.
 5. Open `http://localhost:3000` in your web browser.
 # Author:
