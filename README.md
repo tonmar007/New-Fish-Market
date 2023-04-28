@@ -12,7 +12,9 @@ The goal of this project is to provide a platform where users can easily and int
 # How to Run the Project:
 1. Download the project or clone the repository.
 2. Install dependencies using the `npm install` command.
-3. Start the server using the `npm start` command.
-4. Open `http://localhost:3000` in your web browser.
+3. Create a `.env` file at the root of the project and add the Firebase configuration information. The file should contain the following fields:
+
+4. Start the server using the `npm start` command.
+5. Open `http://localhost:3000` in your web browser.
 # Author:
 This project was created by Marko Toncic.
